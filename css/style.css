@@ -2,41 +2,38 @@
 
 --roxo-acai:#5B2A8C;
 --roxo-profundo:#2D0B48;
---verde-energia:#D2D914;
---amarelo-tropical:#F2CB05;
+--verde:#D2D914;
+--amarelo:#F2CB05;
 --branco:#FDFBFE;
 
 }
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
 
-margin:0;
-
-font-family:Arial,sans-serif;
+font-family:'Montserrat',sans-serif;
 
 background:
 linear-gradient(
 180deg,
-var(--roxo-profundo),
-var(--roxo-acai)
+#2D0B48,
+#5B2A8C
 );
-
-min-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
 
 color:white;
 
 }
 
-.container{
-
-width:90%;
-max-width:400px;
+.hero{
 
 text-align:center;
+
+padding:60px 20px;
 
 }
 
@@ -46,38 +43,134 @@ width:180px;
 
 margin-bottom:20px;
 
+animation:flutuar 4s infinite;
+}
+
+h1{
+
+font-size:2.5rem;
+
+margin-bottom:10px;
+}
+
+p{
+
+opacity:.9;
+
+margin-bottom:25px;
+}
+
+.pedido{
+
+display:inline-block;
+
+padding:18px 30px;
+
+background:var(--verde);
+
+color:var(--roxo-profundo);
+
+text-decoration:none;
+
+font-weight:700;
+
+border-radius:18px;
+
+box-shadow:
+0 0 25px rgba(210,217,20,.5);
+
+transition:.3s;
+}
+
+.pedido:hover{
+
+transform:translateY(-4px);
+}
+
+section{
+
+padding:30px 20px;
+}
+
+h2{
+
+text-align:center;
+
+margin-bottom:20px;
+}
+
+.galeria{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(150px,1fr));
+
+gap:15px;
+}
+
+.galeria img{
+
+width:100%;
+
+border-radius:20px;
+
+transition:.3s;
+}
+
+.galeria img:hover{
+
+transform:scale(1.03);
 }
 
 .botao{
 
 display:block;
 
+max-width:400px;
+
+margin:15px auto;
+
 padding:15px;
 
-margin:12px 0;
-
-background:white;
-
-color:var(--roxo-profundo);
+text-align:center;
 
 text-decoration:none;
 
-border-radius:15px;
+border-radius:16px;
 
-font-weight:bold;
+background:
+rgba(255,255,255,.1);
 
-transition:.3s;
+backdrop-filter:blur(12px);
 
+color:white;
+
+border:
+1px solid rgba(255,255,255,.15);
 }
 
-.botao:hover{
+footer{
 
-transform:translateY(-3px);
+text-align:center;
 
+padding:40px;
+
+opacity:.7;
 }
 
-.subtitulo{
+@keyframes flutuar{
 
-margin-bottom:30px;
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0);
+}
 
 }
