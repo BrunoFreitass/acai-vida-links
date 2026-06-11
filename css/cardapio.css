@@ -15,7 +15,7 @@ body {
 .logo {
     width: 400px; /* Ajustado para um tamanho mais harmônico */
     display: block;
-    margin: auto;
+    margin: 0 auto;
 }
 
 h1 {
