@@ -1,4 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // =========================================================================
+    // SE PRECISAR, ADICIONE SEUS OUTROS SCRIPTS (HOVER, MENUS, ETC.) AQUI:
+    // =========================================================================
+    
+    
+
+
+    // =========================================================================
+    // SISTEMA DE FEEDBACK & COMENTÁRIOS (Preservado e Protegido)
+    // =========================================================================
     const sliderNota = document.getElementById("slider-nota");
     const valorNota = document.getElementById("valor-nota");
     const btnEnviar = document.getElementById("btn-enviar");
@@ -9,12 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let listaComentarios = JSON.parse(localStorage.getItem("brandbook_feedbacks")) || [];
 
     // Atualiza o número da nota na tela enquanto move o slider
-    sliderNota.addEventListener("input", (e) => {
-        valorNota.textContent = e.target.value;
-    });
+    if (sliderNota && valorNota) {
+        sliderNota.addEventListener("input", (e) => {
+            valorNota.textContent = e.target.value;
+        });
+    }
 
     // Função para renderizar os comentários na tela
     function renderizarComentarios() {
+        if (!containerComentarios) return; // Segurança contra erros em outras páginas
+        
         containerComentarios.innerHTML = ""; // Limpa a lista antes de re-renderizar
         
         if (listaComentarios.length === 0) {
@@ -47,29 +61,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Evento de clique no botão Enviar
-    btnEnviar.addEventListener("click", () => {
-        const texto = textoComentario.value.trim();
-        const nota = sliderNota.value;
+    if (btnEnviar && textoComentario) {
+        btnEnviar.addEventListener("click", () => {
+            const texto = textoComentario.value.trim();
+            const nota = sliderNota ? sliderNota.value : 10;
 
-        if (texto === "") {
-            alert("Por favor, digite um comentário antes de enviar!");
-            return;
-        }
+            if (texto === "") {
+                alert("Por favor, digite um comentário antes de enviar!");
+                return;
+            }
 
-        // Adiciona o objeto na lista
-        listaComentarios.push({ texto: texto, nota: nota });
+            // Adiciona o objeto na lista
+            listaComentarios.push({ texto: texto, nota: nota });
 
-        // Salva a lista atualizada de forma segura no navegador
-        localStorage.setItem("brandbook_feedbacks", JSON.stringify(listaComentarios));
+            // Salva a lista atualizada de forma segura no navegador
+            localStorage.setItem("brandbook_feedbacks", JSON.stringify(listaComentarios));
 
-        // Limpa o campo de texto e reinicia o slider
-        textoComentario.value = "";
-        sliderNota.value = 10;
-        valorNota.textContent = 10;
+            // Limpa o campo de texto e reinicia o slider
+            textoComentario.value = "";
+            if (sliderNota && valorNota) {
+                sliderNota.value = 10;
+                valorNota.textContent = 10;
+            }
 
-        // Atualiza a visualização na tela
-        renderizarComentarios();
-    });
+            // Atualiza a visualização na tela
+            renderizarComentarios();
+        });
+    }
 
     // Roda a renderização ao carregar a página para exibir os comentários históricos salvos
     renderizarComentarios();

@@ -33,7 +33,7 @@ body.linktree {
 }
 
 .logo {
-    width: 150px; /* Reduzido levemente para melhor proporção */
+    width: 450px; /* Reduzido levemente para melhor proporção */
     height: auto;
     margin-bottom: 20px;
     border-radius: 50%; /* Caso sua logo seja redonda, ajuda a encaixar */
