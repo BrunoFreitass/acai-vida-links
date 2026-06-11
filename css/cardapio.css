@@ -1,0 +1,344 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #FDFBFE; /* Branco Neve */
+    color: #333;
+}
+
+.container {
+    max-width: 900px; /* Reduzido de 1200px para o formulário de pedido ficar mais centralizado e elegante */
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.logo {
+    width: 400px; /* Ajustado para um tamanho mais harmônico */
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #2D0B48; /* Roxo Profundo */
+    margin-top: 20px;
+    font-size: 2rem;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* Container dos botões de tamanhos de copos */
+.tamanhos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Melhor distribuição em telas menores */
+    gap: 20px;
+}
+
+.tamanho {
+    border: 2px solid transparent;
+    cursor: pointer;
+    background: white;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.06);
+    transition: all .3s ease;
+    text-align: center;
+}
+
+.tamanho:hover {
+    transform: translateY(-5px);
+    border-color: #5B2A8C;
+    box-shadow: 0 8px 20px rgba(91,42,140,0.15);
+}
+
+.tamanho img {
+    width: 100%;
+    height: 160px; /* Ajustado para os copos ficarem uniformes e quadrados */
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.tamanho h3 {
+    color: #2D0B48;
+    margin-top: 12px;
+    font-size: 1.2rem;
+}
+
+.tamanho p {
+    color: #5B2A8C;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+#configurador {
+    margin-top: 40px;
+}
+
+/* Área do Formulário gerada pelo JS */
+.formulario {
+    margin-top: 20px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.formulario h2 {
+    color: #2D0B48;
+    margin-bottom: 15px;
+}
+
+.info {
+    background: #F4EFFB;
+    padding: 15px;
+    border-radius: 12px;
+    color: #2D0B48;
+    margin-bottom: 25px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Organização dos campos de input do cliente */
+.dados-cliente {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.dados-cliente input#endereco {
+    grid-column: span 2; /* Endereço ocupa a linha inteira */
+}
+
+.formulario input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    background: #fdfdfd;
+    transition: border-color 0.2s;
+}
+
+.formulario input[type="text"]:focus {
+    outline: none;
+    border-color: #5B2A8C;
+    background: #fff;
+}
+
+.formulario h3 {
+    color: #2D0B48;
+    margin: 25px 0 15px 0;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #F4EFFB;
+    padding-bottom: 5px;
+}
+
+/* NOVO: Grid para organizar os Checkboxes em duas colunas */
+.grid-opcoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.grid-opcoes label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    border: 2px solid #EAEAEA;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all .25s ease;
+    background: white;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.grid-opcoes label:hover {
+    transform: translateY(-2px);
+    border-color: #5B2A8C;
+    box-shadow: 0 4px 12px rgba(91,42,140,.12);
+}
+
+.grid-opcoes input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #5B2A8C;
+}
+
+/* Alertas de limites e contadores */
+.alertas-limite {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+/* Unificado contadores de frutas, acompanhamentos e adicionado caldas */
+#contador-frutas,
+#contador-acomp,
+#contador-caldas {
+    padding: 12px 15px;
+    border-radius: 10px;
+    background: #FFFDEB;
+    border-left: 4px solid #F2CB05;
+    color: #6E5200;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Estilo para quando houver valor adicional excedido */
+.extra {
+    color: #C0392B;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* Caixa do Resumo Financeiro */
+.box-resumo {
+    margin-top: 30px;
+    padding: 20px;
+    background: #FDFBFE;
+    border: 2px solid #2D0B48;
+    color: #2D0B48;
+    border-radius: 15px;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+/* Botão do WhatsApp com tratamento visual de bloqueio */
+#whatsapp {
+    width: 100%;
+    margin-top: 25px;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: #25D366; /* Verde do WhatsApp */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+#whatsapp:hover:not(:disabled) {
+    background: #1ebd59;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+}
+
+/* NOVO: Estilo quando o botão estiver desativado (Falta de dados do cliente) */
+#whatsapp:disabled {
+    background: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+    opacity: 0.7;
+}
+
+/* Responsividade para telas de celulares */
+@media (max-width: 600px) {
+    .dados-cliente {
+        grid-template-columns: 1fr;
+    }
+    .dados-cliente input#endereco {
+        grid-column: span 1;
+    }
+    .grid-opcoes {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================================================
+   🍦 ESTILIZAÇÃO DO BANNER DE SORVETE 
+   ================================================== */
+.banner-sorvete {
+    margin: 35px auto;
+    background: #FFFDEB; /* Amarelo bem clarinho de fundo */
+    border: 2px dashed #F2CB05; /* Borda tracejada amarela */
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(242, 203, 5, 0.1);
+}
+
+.banner-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icone-sorvete {
+    font-size: 2.2rem;
+    animation: balancar 3s infinite ease-in-out;
+}
+
+.texto-sorvete h3 {
+    margin: 0;
+    color: #2D0B48; /* Roxo Profundo */
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.texto-sorvete p {
+    margin: 4px 0 0 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Botão específico do WhatsApp de Sorvete */
+.btn-sorvete {
+    background: #2D0B48;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(45, 11, 72, 0.15);
+}
+
+.btn-sorvete:hover {
+    background: #5B2A8C; /* Roxo mais claro no hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(91, 42, 140, 0.25);
+}
+
+/* Animaçãozinha discreta para chamar a atenção do cliente */
+@keyframes balancar {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+}
+
+/* Ajuste responsivo para celulares */
+@media (max-width: 650px) {
+    .banner-sorvete {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+    }
+    .banner-conteudo {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .btn-sorvete {
+        width: 100%;
+        text-align: center;
+    }
+}

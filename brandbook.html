@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Açaí Vida | Brandbook Premium</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==================================================
+           🎯 DESIGN SYSTEM & TIPOGRAFIA MONTSERRAT REGULAR
+           ================================================== */
+        body {
+            background-color: #2D0B48; /* Roxo Profundo */
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400; 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .topo-horizontal {
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .topo-horizontal {
+            text-align: center;
+            color: #333333;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 14px 20px;
+            background-color: #FDFBFE; 
+            border-bottom: 4px solid #5B2A8C;
+            line-height: 1.4;
+        }
+
+        .navegacao-projeto {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 25px 20px;
+            flex-wrap: wrap; 
+        }
+
+        .btn-navegar {
+            background-color: #5B2A8C;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 50px; 
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-navegar:hover {
+            background-color: #D2D914; 
+            color: #2D0B48;
+            transform: translateY(-2px);
+        }
+
+        /* ==================================================
+           🎯 CONTÊINERES E LAYOUT (ESTILO BEHANCE)
+           ================================================== */
+        .hero-container {
+            text-align: center;
+            padding: 40px 20px; 
+        }
+
+        .logo-capa {
+            max-width: 100%;
+            width: 450px;        
+            height: auto;        
+            object-fit: contain; 
+            margin: 0 auto;
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
+        }
+
+        .bloco-behance {
+            max-width: 900px;    
+            margin: 0 auto;
+            padding: 10px 20px 60px 20px;
+        }
+
+        .secao-wrapper {
+            margin-bottom: 50px;
+        }
+
+        .fundo-interativo {
+            background: #FFFFFF;
+            padding: 40px;       
+            border-radius: 16px;
+            color: #333333;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
+        }
+
+        .fundo-interativo h2 { 
+            color: #5B2A8C; 
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .fundo-interativo p { 
+            color: #555555; 
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .lista-tipografia {
+            margin-top: 20px;
+            padding-left: 20px;
+            color: #444;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .lista-tipografia li {
+            margin-bottom: 12px;
+        }
+
+        /* ==================================================
+           📸 GRIDS DE IMAGENS (SÉRIES E GRUPOS)
+           ================================================== */
+        .grid-dois-blocos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .grid-tres-blocos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .grid-duas-colunas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .card-midia {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            position: relative; 
+        }
+
+        .card-midia img {
+            width: 100%;
+            height: auto; 
+            max-height: 380px;
+            object-fit: contain; 
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.4s ease, box-shadow 0.4s ease; 
+            position: relative; 
+            z-index: 1; 
+        }
+
+        /* ✨ EFEITO HOVER ATUALIZADO: Imagem cresce 30% e sobrepõe tudo livremente */
+        .card-midia img:hover {
+            transform: scale(1.3); 
+            z-index: 10; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5); 
+        }
+
+        .subtitulo-imagem {
+            margin-top: 0;
+            margin-bottom: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #F2CB05; 
+            position: relative; 
+            z-index: 2; 
+        }
+
+        .legenda-midia {
+            display: block;
+            margin-top: 12px;
+            font-size: 14px;
+            color: #DDDDDD;
+            position: relative; 
+            z-index: 2; 
+        }
+
+        /* ==================================================
+           🎨 SEÇÃO PALETA DE CORES (TABELA RESPONSIVA)
+           ================================================== */
+        .tabela-cores-container {
+            width: 100%;
+            overflow-x: auto; 
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .tabela-cores {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 12px 0;
+        }
+
+        .tabela-cores td {
+            height: 100px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 1.5;
+            min-width: 140px; 
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        /* ==================================================
+           💬 SEÇÃO 07 • FEEDBACK & FORMULÁRIO
+           ================================================== */
+        .fundo-rodape-roxo {
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 16px;
+            color: #333333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .fundo-rodape-roxo h2 { 
+            color: #2D0B48; 
+            margin-top: 0;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .formulario-feedback {
+            display: grid;
+            grid-template-columns: 2fr 1fr; 
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .grupo-input { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 12px; 
+        }
+
+        #texto-comentario { 
+            width: 100%; 
+            padding: 14px; 
+            border-radius: 10px; 
+            border: 1px solid #ddd; 
+            font-family: inherit;
+            font-size: 14px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        #texto-comentario:focus {
+            outline: none;
+            border-color: #5B2A8C;
+        }
+
+        #btn-enviar { 
+            background: #2D0B48; 
+            color: white; 
+            border: none; 
+            padding: 14px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-weight: 700; 
+            font-size: 14px;
+            transition: background 0.2s; 
+        }
+
+        #btn-enviar:hover { 
+            background: #5B2A8C; 
+        }
+
+        .grupo-nota { 
+            background: #F4EFFB; 
+            padding: 25px 20px; 
+            border-radius: 12px; 
+            text-align: center; 
+            color: #2D0B48;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%; 
+            box-sizing: border-box;
+        }
+
+        .grupo-nota label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        #slider-nota { 
+            width: 100%; 
+            accent-color: #5B2A8C; 
+            margin: 10px 0;
+        }
+
+        .display-nota {
+            font-size: 15px;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        .comentarios-renderizados {
+            margin-top: 30px;
+            border-top: 2px solid #F4EFFB;
+            padding-top: 20px;
+        }
+
+        .comentarios-renderizados h3 {
+            color: #2D0B48;
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .footer-final { 
+            text-align: center; 
+            padding: 40px 20px; 
+            font-size: 13px; 
+            color: rgba(255, 255, 255, 0.4); 
+            letter-spacing: 0.5px;
+        }
+
+        /* ==================================================
+           📱 RESPONSIVIDADE PARA CELULARES
+           ================================================== */
+        @media (max-width: 768px) {
+            .grid-duas-colunas {
+                grid-template-columns: 1fr; 
+            }
+            .formulario-feedback {
+                grid-template-columns: 1fr; 
+            }
+            .logo-capa {
+                width: 220px; 
+            }
+            .fundo-interativo, .fundo-rodape-roxo {
+                padding: 25px 20px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="topo-horizontal">
+        Brandbook Acadêmico | Identidade Visual | Cliente Açaí Vida | Ano 2026 | Projeto de Extensão
+    </header>
+
+    <nav class="navegacao-projeto">
+        <a href="index.html" class="btn-navegar">⬅️ Voltar para Links (Início)</a>
+        <a href="cardapio.html" class="btn-navegar">🥤 Ir para o Cardápio</a>
+    </nav>
+
+    <section class="hero-container">
+        <img src="assets/logos/logo_02.png" alt="Logo Açaí Vida Premium" class="logo-capa">
+    </section>
+
+    <main class="bloco-behance">
+
+        <section class="secao-wrapper">
+            <div class="fundo-interativo">
+                <h2>01 • Identidade Visual</h2>
+                <p>A identidade visual da Açaí Vida foi desenvolvida para transmitir energia, naturalidade e conexão com a cultura amazônica.</p>
+            </div>
+            <div class="grid-dois-blocos">
+                <div class="card-midia">
+                    <h3 class="subtitulo-imagem">Logo Principal</h3>
+                    <img src="assets/logos/logo_01.png" alt="Logo Principal">
+                </div>
+                <div class="card-midia">
+                    <h3 class="subtitulo-imagem">Versão Alternativa</h3>
+                    <img src="assets/logos/logo_02.png" alt="Logo Secundária">
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-wrapper">
+            <div class="fundo-interativo">
+                <h2>02 • Conceito da Marca</h2>
+                <p>A Açaí Vida representa energia, bem-estar e vitalidade. Sua identidade busca unir elementos da cultura amazônica com uma linguagem contemporânea.</p>
+            </div>
+        </section>
+
+        <section class="secao-wrapper">
+            <div class="fundo-interativo">
+                <h2>03 • Tipografia</h2>
+                <p>A seleção tipográfica busca equilibrar personalidade, modernidade e excelente legibilidade em ambientes digitais e impressos.</p>
+                <ul class="lista-tipografia">
+                    <li><strong>Gelato Luxe:</strong> Utilizada como tipografia principal por transmitir exclusividade, movimento e personalidade.</li>
+                    <li><strong>Poppins Bold:</strong> Empregada em títulos e chamadas por sua alta legibilidade.</li>
+                    <li><strong>Montserrat Regular:</strong> Utilizada para compor e dar assistência ao texto padrão.</li>
+                </ul>
+            </div>
+            
+            <div class="grid-tres-blocos">
+                <div class="card-midia">
+                    <h3 class="subtitulo-imagem">Exemplo Tipografia 1</h3>
+                    <img src="assets/fonts/gelato.png" alt="Exemplo Gelato Luxe">
+                </div>
+                <div class="card-midia">
+                    <h3 class="subtitulo-imagem">Exemplo Tipografia 2</h3>
+                    <img src="assets/fonts/poppins.png" alt="Exemplo Poppins">
+                </div>
+                <div class="card-midia">
+                    <h3 class="subtitulo-imagem">Exemplo Tipografia 3</h3>
+                    <img src="assets/fonts/montserrat.png" alt="Exemplo Montserrat">
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-wrapper">
+            <div class="fundo-interativo">
+                <h2>04 • Paleta de Cores & Psicologia Cromática</h2>
+                <p>A paleta cromática da Açaí Vida foi construída para transmitir energia, vitalidade, natureza e conexão profunda com a essência da Amazônia.</p>
+                
+                <div style="margin-top: 25px; font-size: 15px; line-height: 1.6; color: #555555;">
+                    <p style="margin-bottom: 12px; font-weight: bold; color: #5B2A8C;">Psicologia das Cores Aplicada:</p>
+                    <p>• <strong>Roxo (Açaí & Profundo):</strong> Associado à exclusividade e ao valor premium. Evoca a cor madura do fruto do açaí puro, gerando desejo imediato e sensação de autenticidade nutritiva.</p>
+                    <p>• <strong>Verde Energia:</strong> Representa saúde, frescor e a força da floresta amazônica. Equilibra o projeto lembrando o aspect natural e o bem-estar.</p>
+                    <p>• <strong>Amarelo Tropical:</strong> Estimula o otimismo, a alegria e o apetite, injetando calor humano e vibração jovem.</p>
+                </div>
+            </div>
+            
+            <div class="tabela-cores-container">
+                <table class="tabela-cores">
+                    <tr>
+                        <td style="background:#5B2A8C; color:white;">Roxo Açaí<br>#5B2A8C</td>
+                        <td style="background:#D2D914; color:black;">Verde Energia<br>#D2D914</td>
+                        <td style="background:#F2CB05; color:black;">Amarelo Tropical<br>#F2CB05</td>
+                        <td style="background:#FDFBFE; color:black; border: 1px solid #ddd;">Branco Neve<br>#FDFBFE</td>
+                        <td style="background:#2D0B48; color:white;">Roxo Profundo<br>#2D0B48</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="grid-duas-colunas">
+                <div class="card-midia">
+                    <h3 class="subtitulo-imagem">Logo Principal (Fundo Claro)</h3>
+                    <img src="assets/logos/logo_01.png" alt="Logo Principal">
+                    <span class="legenda-midia">Aplicação com alto contraste claro</span>
+                </div>
+                <div class="card-midia">
+                    <h3 class="subtitulo-imagem">Logo 02 (Fundo Escuro)</h3>
+                    <img src="assets/logos/logo_02.png" alt="Logo 02">
+                    <span class="legenda-midia">Aplicação institucional em fundo escuro</span>
+                </div>
+                <div class="card-midia">
+                    <h3 class="subtitulo-imagem">Logo 03 (Monocromática)</h3>
+                    <img src="assets/logos/logo_03.png" alt="Logo 03">
+                    <span class="legenda-midia">Variação simplificada para marca d'água</span>
+                </div>
+                <div class="card-midia">
+                    <h3 class="subtitulo-imagem">Cores 01 (Estudo)</h3>
+                    <img src="assets/mockups/cores_01.png" alt="Cores 01">
+                    <span class="legenda-midia">Estudo de balanço cromático</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-wrapper">
+            <div class="fundo-interativo">
+                <h2>05 • Aplicação da Marca</h2>
+                <p>Exemplos de aplicação da identidade visual em embalagens, copos e composições conceituais em duas colunas amplas e sem cortes.</p>
+            </div>
+            
+            <div class="grid-duas-colunas">
+                <div class="card-midia"><img src="assets/imagens/aca_01.jpeg" alt="Açaí 1"><span class="legenda-midia">Fotografia Conceitual 1</span></div>
+                <div class="card-midia"><img src="assets/imagens/aca_02.jpeg" alt="Açaí 2"><span class="legenda-midia">Fotografia Conceitual 2</span></div>
+                <div class="card-midia"><img src="assets/imagens/aca_03.jpeg" alt="Açaí 3"><span class="legenda-midia">Fotografia Conceitual 3</span></div>
+                <div class="card-midia"><img src="assets/imagens/aca_04.jpeg" alt="Açaí 4"><span class="legenda-midia">Fotografia Conceitual 4</span></div>
+                <div class="card-midia"><img src="assets/imagens/aca_05.jpeg" alt="Açaí 5"><span class="legenda-midia">Fotografia Conceitual 5</span></div>
+                <div class="card-midia"><img src="assets/imagens/aca_01.jpeg" alt="Açaí 6"><span class="legenda-midia">Fotografia Conceitual 6</span></div>
+                <div class="card-midia"><img src="assets/imagens/sor_01.jpeg" alt="Sorvete 1"><span class="legenda-midia">Fotografia Conceitual 7</span></div>
+                <div class="card-midia"><img src="assets/imagens/sor_02.jpeg" alt="Sorvete 2"><span class="legenda-midia">Fotografia Conceitual 8</span></div>
+                <div class="card-midia"><img src="assets/imagens/sor_03.jpeg" alt="Sorvete 3"><span class="legenda-midia">Fotografia Conceitual 9</span></div>
+                <div class="card-midia"><img src="assets/imagens/sor_04.jpeg" alt="Sorvete 4"><span class="legenda-midia">Fotografia Conceitual 10</span></div>
+            </div>
+        </section>
+
+        <section class="secao-wrapper">
+            <div class="fundo-interativo">
+                <h2>06 • Materiais Promocionais</h2>
+                <p>Simulação física do cardápio institucional desenvolvido para os clientes da loja.</p>
+            </div>
+            
+            <div class="grid-duas-colunas">
+                <div class="card-midia">
+                    <h3 class="subtitulo-imagem">Cardápio Oficial - Visualização</h3>
+                    <img src="assets/mockups/insta_01.png" alt="Mockup do Instagram">
+                </div>
+                <div class="card-midia">
+                    <h3 class="subtitulo-imagem">Mockup 2</h3>
+                    <img src="assets/mockups/uniforme_01.png" alt="Mockup do Uniforme">
+                </div>
+                <div class="card-midia">
+                    <h3 class="subtitulo-imagem">Mockup 3</h3>
+                    <img src="assets/mockups/banner_02.png" alt="Mockup do Frontlight">
+                </div>
+                <div class="card-midia">
+                    <h3 class="subtitulo-imagem">Mockup 4</h3>
+                    <img src="assets/mockups/out_01.png" alt="Mockup do Frontlight">
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-wrapper fundo-rodape-roxo">
+            <h2>07 • Feedback & Comentários</h2>
+            <p>Deixe suas observações sobre a consistência e evolução da marca.</p>
+            
+            <div class="formulario-feedback">
+                <div class="grupo-input">
+                    <textarea id="texto-comentario" placeholder="Digite observações, sugestões ou avaliações do projeto..." rows="4"></textarea>
+                    <button id="btn-enviar">Enviar Comentário</button>
+                </div>
+                <div class="grupo-nota">
+                    <label for="slider-nota">Avaliação Geral:</label>
+                    <input type="range" id="slider-nota" min="1" max="10" value="10">
+                    <div class="display-nota">Nota: <span id="valor-nota">10</span>/10</div>
+                </div>
+            </div>
+
+            <div class="comentarios-renderizados">
+                <h3>Comentários Recentes:</h3>
+                <div id="container-comentarios"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer-final">
+        Açaí Vida • Brandbook Acadêmico • 2026
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

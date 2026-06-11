@@ -1,0 +1,93 @@
+:root {
+    --roxo-acai: #5B2A8C;
+    --roxo-profundo: #2D0B48;
+    --verde: #D2D914;
+    --amarelo: #F2CB05;
+    --branco: #FDFBFE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.linktree {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(180deg, var(--roxo-profundo), var(--roxo-acai));
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Ajustado de .hero para .container (conforme seu HTML) */
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 450px; /* Mantém o visual compacto estilo celular */
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.logo {
+    width: 150px; /* Reduzido levemente para melhor proporção */
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 50%; /* Caso sua logo seja redonda, ajuda a encaixar */
+    animation: flutuar 4s infinite ease-in-out;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+p {
+    opacity: .8;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+/* Ajustado de .botao para .btn (conforme seu HTML) */
+.btn {
+    display: block;
+    width: 100%;
+    margin: 16px auto;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Suporte para navegadores Safari/iOS */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, .15);
+    transition: all .3s ease;
+}
+
+/* Efeito Hover nos botões para dar interatividade */
+.btn:hover {
+    background: var(--verde);
+    color: var(--roxo-profundo);
+    border-color: var(--verde);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(210, 217, 20, 0.3);
+}
+
+/* Animação suave de flutuação */
+@keyframes flutuar {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

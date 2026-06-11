@@ -1,0 +1,349 @@
+/* ==================================================
+   🎯 GOOGLE FONTS - MONTSERRAT
+   ================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* ==================================================
+   🎯 ESTILOS BASE (PADRONIZADO EM MONTSERRAT)
+   ================================================== */
+body {
+    background-color: #2D0B48; /* Roxo Profundo da marca */
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; 
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .topo-horizontal {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.topo-horizontal {
+    text-align: center;
+    color: #333333;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 14px 20px;
+    background-color: #FDFBFE; 
+    border-bottom: 4px solid #5B2A8C;
+    line-height: 1.4;
+}
+
+.navegacao-projeto {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 25px 20px;
+    flex-wrap: wrap; 
+}
+
+.btn-navegar {
+    background-color: #5B2A8C;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 50px; 
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-navegar:hover {
+    background-color: #D2D914; 
+    color: #2D0B48;
+    transform: translateY(-2px);
+}
+
+/* ==================================================
+   🎯 PROPORÇÕES DOS BLOCOS E IMAGENS
+   ================================================== */
+.hero-container {
+    text-align: center;
+    padding: 30px 20px; 
+}
+
+.logo-capa {
+    max-width: 100%;
+    width: 450px;        
+    height: auto;        
+    object-fit: contain; 
+    margin: 0 auto;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
+}
+
+.bloco-behance {
+    max-width: 900px;    
+    margin: 0 auto;
+    padding: 10px 20px 60px 20px;
+}
+
+.secao-wrapper {
+    margin-bottom: 40px;
+}
+
+.fundo-interativo {
+    background: #FFFFFF;
+    padding: 40px;       
+    border-radius: 16px;
+    color: #333333;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
+}
+
+.fundo-interativo h2 { 
+    color: #5B2A8C; 
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.fundo-interativo p { 
+    color: #555555; 
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.lista-tipografia {
+    margin-top: 20px;
+    padding-left: 20px;
+    color: #444;
+}
+
+.lista-tipografia li {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Grid de duas colunas genérico */
+.grid-dois-blocos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card-midia {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-midia img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    display: block;
+}
+
+.subtitulo-imagem {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #F2CB05; 
+}
+
+/* Tabela de Cores Responsiva */
+.tabela-cores-container {
+    width: 100%;
+    overflow-x: auto; 
+    border-radius: 12px;
+}
+
+.tabela-cores {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 12px 0;
+    margin: 10px 0;
+}
+
+.tabela-cores td {
+    height: 120px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.5;
+    min-width: 150px; 
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* ==================================================
+   📸 SEÇÃO: APLICAÇÃO DA MARCA (CORRIGIDO SEM CORTES)
+   ================================================== */
+.grid-galeria-fotos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mantém exatamente 2 colunas */
+    gap: 25px;                             
+    margin-bottom: 30px;
+}
+
+.card-galeria {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-galeria img {
+    width: 100%;
+    height: auto;        /* SOLUÇÃO: Evita que a imagem seja cortada ou esmagada */
+    max-height: 450px;   /* Define um limite máximo elegante para não esticar infinito */
+    object-fit: contain; /* SOLUÇÃO: Garante que a imagem inteira apareça no card */
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2); /* Fundo sutil para destacar mockups transparentes ou brancos */
+}
+
+.card-galeria span {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+/* ==================================================
+   🎯 FEEDBACKS, COMENTÁRIOS E MATERIAIS
+   ================================================== */
+.fundo-rodape-roxo {
+    background: #FFFFFF;
+    padding: 40px;
+    border-radius: 16px;
+    color: #333333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.fundo-rodape-roxo h2 { 
+    color: #2D0B48; 
+    margin-top: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.formulario-feedback {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 25px;
+    margin: 25px 0;
+}
+
+.grupo-input { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+}
+
+#texto-comentario { 
+    width: 100%; 
+    padding: 14px; 
+    border-radius: 10px; 
+    border: 1px solid #ddd; 
+    font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+#texto-comentario:focus {
+    outline: none;
+    border-color: #5B2A8C;
+}
+
+#btn-enviar { 
+    background: #2D0B48; 
+    color: white; 
+    border: none; 
+    padding: 14px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    font-weight: 700; 
+    font-size: 14px;
+    transition: background 0.2s; 
+}
+
+#btn-enviar:hover { 
+    background: #5B2A8C; 
+}
+
+.grupo-nota { 
+    background: #F4EFFB; 
+    padding: 25px 20px; 
+    border-radius: 12px; 
+    text-align: center; 
+    color: #2D0B48;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    box-sizing: border-box;
+}
+
+.grupo-nota label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#slider-nota { 
+    width: 100%; 
+    accent-color: #5B2A8C; 
+    margin: 10px 0;
+}
+
+.display-nota {
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.comentarios-renderizados {
+    margin-top: 30px;
+    border-top: 2px solid #F4EFFB;
+    padding-top: 20px;
+}
+
+.comentarios-renderizados h3 {
+    color: #2D0B48;
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.footer-final { 
+    text-align: center; 
+    padding: 40px 20px; 
+    font-size: 13px; 
+    color: rgba(255, 255, 255, 0.4); 
+    letter-spacing: 0.5px;
+}
+
+/* ==================================================
+   📱 RESPONSIVIDADE (CELULARES)
+   ================================================== */
+@media (max-width: 768px) {
+    .grid-galeria-fotos {
+        grid-template-columns: 1fr; 
+    }
+    .formulario-feedback {
+        grid-template-columns: 1fr; 
+    }
+    .logo-capa {
+        width: 220px; 
+    }
+    .fundo-interativo, .fundo-rodape-roxo {
+        padding: 25px 20px; 
+    }
+}

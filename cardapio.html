@@ -1,44 +1,83 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-BR">
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Cardápio</title>
-
-<style>
-
-body{
-
-margin:0;
-
-background:#2D0B48;
-
-display:flex;
-
-justify-content:center;
-
-}
-
-img{
-
-width:100%;
-
-max-width:1000px;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Digital | Açaí Vida</title>
+    <link rel="stylesheet" href="css/cardapio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<img src="assets/cardapio_01.jpeg">
+<div class="container">
+
+    <a href="index.html" class="btn-voltar" style="text-decoration: none; font-size: 14px; color: #5B2A8C; font-weight: bold; display: block; margin-bottom: 20px; text-align: left;">⬅️ Voltar ao Início</a>
+
+    <img src="assets/logos/logo_02.png" class="logo" alt="Logotipo Açaí Vida">
+
+    <h1>Cardápio Digital</h1>
+    <p class="subtitulo">Monte seu Açaí do seu jeito</p>
+
+    <div class="tamanhos">
+
+        <button class="tamanho" data-tamanho="250">
+            <img src="assets/imagens/aca_01.jpeg" alt="Açaí 250ml">
+            <h3>250ml</h3>
+            <p>R$ 13,00</p>
+        </button>
+
+        <button class="tamanho" data-tamanho="300">
+            <img src="assets/imagens/aca_02.jpeg" alt="Açaí 300ml">
+            <h3>300ml</h3>
+            <p>R$ 15,00</p>
+        </button>
+
+        <button class="tamanho" data-tamanho="400">
+            <img src="assets/imagens/aca_03.jpeg" alt="Açaí 400ml">
+            <h3>400ml</h3>
+            <p>R$ 18,00</p>
+        </button>
+
+        <button class="tamanho" data-tamanho="500">
+            <img src="assets/imagens/aca_04.jpeg" alt="Açaí 500ml">
+            <h3>500ml</h3>
+            <p>R$ 22,00</p>
+        </button>
+
+        <button class="tamanho" data-tamanho="700">
+            <img src="assets/imagens/aca_05.jpeg" alt="Açaí 700ml">
+            <h3>700ml</h3>
+            <p>R$ 28,00</p>
+        </button>
+
+    </div>
+
+    </div>
+
+    <div class="banner-sorvete">
+        <div class="banner-conteudo">
+            <span class="icone-sorvete">🍦</span>
+            <div class="texto-sorvete">
+                <h3>Temos Sorvete!</h3>
+                <p>Consulte a disponibilidade e os sabores do dia com a nossa equipe.</p>
+            </div>
+        </div>
+        <a href="https://wa.me/5595981162474?text=Ol%C3%A1%2C+gostaria+de+saber+os+sabores+e+a+disponibilidade+dos+sorvetes+hoje%21" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-sorvete">
+           💬 Perguntar no WhatsApp
+        </a>
+    </div>
+
+    <div id="configurador"></div>
+
+    <div id="configurador"></div>
+
+</div>
+
+<script src="js/cardapio.js"></script>
 
 </body>
-
 </html>
