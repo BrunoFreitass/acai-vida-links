@@ -8,360 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* ==================================================
-           🎯 DESIGN SYSTEM & TIPOGRAFIA MONTSERRAT REGULAR
-           ================================================== */
-        body {
-            background-color: #2D0B48; /* Roxo Profundo */
-            color: #FFFFFF;
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 400; 
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1, h2, h3, .topo-horizontal {
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 0.5px;
-        }
-
-        .topo-horizontal {
-            text-align: center;
-            color: #333333;
-            font-size: 13px;
-            font-weight: 700;
-            padding: 14px 20px;
-            background-color: #FDFBFE; 
-            border-bottom: 4px solid #5B2A8C;
-            line-height: 1.4;
-        }
-
-        .navegacao-projeto {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 25px 20px;
-            flex-wrap: wrap; 
-        }
-
-        .btn-navegar {
-            background-color: #5B2A8C;
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 50px; 
-            font-weight: 700;
-            font-size: 14px;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-navegar:hover {
-            background-color: #D2D914; 
-            color: #2D0B48;
-            transform: translateY(-2px);
-        }
-
-        /* ==================================================
-           🎯 CONTÊINERES E LAYOUT (ESTILO BEHANCE)
-           ================================================== */
-        .hero-container {
-            text-align: center;
-            padding: 40px 20px; 
-        }
-
-        .logo-capa {
-            max-width: 100%;
-            width: 450px;        
-            height: auto;        
-            object-fit: contain; 
-            margin: 0 auto;
-            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
-        }
-
-        .bloco-behance {
-            max-width: 900px;    
-            margin: 0 auto;
-            padding: 10px 20px 60px 20px;
-        }
-
-        .secao-wrapper {
-            margin-bottom: 50px;
-        }
-
-        .fundo-interativo {
-            background: #FFFFFF;
-            padding: 40px;       
-            border-radius: 16px;
-            color: #333333;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
-        }
-
-        .fundo-interativo h2 { 
-            color: #5B2A8C; 
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.6rem;
-            font-weight: 700;
-        }
-
-        .fundo-interativo p { 
-            color: #555555; 
-            font-size: 15px;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .lista-tipografia {
-            margin-top: 20px;
-            padding-left: 20px;
-            color: #444;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        .lista-tipografia li {
-            margin-bottom: 12px;
-        }
-
-        /* ==================================================
-           📸 GRIDS DE IMAGENS (SÉRIES E GRUPOS)
-           ================================================== */
-        .grid-dois-blocos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .grid-tres-blocos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .grid-duas-colunas {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .card-midia {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            position: relative; 
-        }
-
-        .card-midia img {
-            width: 100%;
-            height: auto; 
-            max-height: 380px;
-            object-fit: contain; 
-            border-radius: 8px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            display: block;
-            margin: 0 auto;
-            transition: transform 0.4s ease, box-shadow 0.4s ease; 
-            position: relative; 
-            z-index: 1; 
-        }
-
-        /* ✨ EFEITO HOVER ATUALIZADO: Imagem cresce 30% e sobrepõe tudo livremente */
-        .card-midia img:hover {
-            transform: scale(1.3); 
-            z-index: 10; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5); 
-        }
-
-        .subtitulo-imagem {
-            margin-top: 0;
-            margin-bottom: 14px;
-            font-size: 15px;
-            font-weight: 600;
-            color: #F2CB05; 
-            position: relative; 
-            z-index: 2; 
-        }
-
-        .legenda-midia {
-            display: block;
-            margin-top: 12px;
-            font-size: 14px;
-            color: #DDDDDD;
-            position: relative; 
-            z-index: 2; 
-        }
-
-        /* ==================================================
-           🎨 SEÇÃO PALETA DE CORES (TABELA RESPONSIVA)
-           ================================================== */
-        .tabela-cores-container {
-            width: 100%;
-            overflow-x: auto; 
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
-
-        .tabela-cores {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 12px 0;
-        }
-
-        .tabela-cores td {
-            height: 100px;
-            border-radius: 12px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 14px;
-            line-height: 1.5;
-            min-width: 140px; 
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-        }
-
-        /* ==================================================
-           💬 SEÇÃO 07 • FEEDBACK & FORMULÁRIO
-           ================================================== */
-        .fundo-rodape-roxo {
-            background: #FFFFFF;
-            padding: 40px;
-            border-radius: 16px;
-            color: #333333;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .fundo-rodape-roxo h2 { 
-            color: #2D0B48; 
-            margin-top: 0;
-            font-size: 1.6rem;
-            font-weight: 700;
-        }
-
-        .formulario-feedback {
-            display: grid;
-            grid-template-columns: 2fr 1fr; 
-            gap: 25px;
-            margin: 25px 0;
-        }
-
-        .grupo-input { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 12px; 
-        }
-
-        #texto-comentario { 
-            width: 100%; 
-            padding: 14px; 
-            border-radius: 10px; 
-            border: 1px solid #ddd; 
-            font-family: inherit;
-            font-size: 14px;
-            box-sizing: border-box;
-            resize: vertical;
-        }
-
-        #texto-comentario:focus {
-            outline: none;
-            border-color: #5B2A8C;
-        }
-
-        #btn-enviar { 
-            background: #2D0B48; 
-            color: white; 
-            border: none; 
-            padding: 14px; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            font-weight: 700; 
-            font-size: 14px;
-            transition: background 0.2s; 
-        }
-
-        #btn-enviar:hover { 
-            background: #5B2A8C; 
-        }
-
-        .grupo-nota { 
-            background: #F4EFFB; 
-            padding: 25px 20px; 
-            border-radius: 12px; 
-            text-align: center; 
-            color: #2D0B48;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%; 
-            box-sizing: border-box;
-        }
-
-        .grupo-nota label {
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        #slider-nota { 
-            width: 100%; 
-            accent-color: #5B2A8C; 
-            margin: 10px 0;
-        }
-
-        .display-nota {
-            font-size: 15px;
-            font-weight: 700;
-            margin-top: 5px;
-        }
-
-        .comentarios-renderizados {
-            margin-top: 30px;
-            border-top: 2px solid #F4EFFB;
-            padding-top: 20px;
-        }
-
-        .comentarios-renderizados h3 {
-            color: #2D0B48;
-            font-size: 1.1rem;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .footer-final { 
-            text-align: center; 
-            padding: 40px 20px; 
-            font-size: 13px; 
-            color: rgba(255, 255, 255, 0.4); 
-            letter-spacing: 0.5px;
-        }
-
-        /* ==================================================
-           📱 RESPONSIVIDADE PARA CELULARES
-           ================================================== */
-        @media (max-width: 768px) {
-            .grid-duas-colunas {
-                grid-template-columns: 1fr; 
-            }
-            .formulario-feedback {
-                grid-template-columns: 1fr; 
-            }
-            .logo-capa {
-                width: 220px; 
-            }
-            .fundo-interativo, .fundo-rodape-roxo {
-                padding: 25px 20px; 
-            }
-        }
-    </style>
+    <link href="css/brandbook.css" rel="stylesheet">
 </head>
 <body>
 
@@ -378,9 +25,10 @@
         <img src="assets/logos/logo_02.png" alt="Logo Açaí Vida Premium" class="logo-capa">
     </section>
 
-    <main class="bloco-behance">
+    <main id="brandbook-pdf" class="bloco-behance">
 
-        <section class="secao-wrapper">
+        <!-- SEÇÃO 01 (Adicionada a classe pdf-section para controle de quebra de página) -->
+        <section class="secao-wrapper pdf-section">
             <div class="fundo-interativo">
                 <h2>01 • Identidade Visual</h2>
                 <p>A identidade visual da Açaí Vida foi desenvolvida para transmitir energia, naturalidade e conexão com a cultura amazônica.</p>
@@ -397,14 +45,16 @@
             </div>
         </section>
 
-        <section class="secao-wrapper">
+        <!-- SEÇÃO 02 -->
+        <section class="secao-wrapper pdf-section">
             <div class="fundo-interativo">
                 <h2>02 • Conceito da Marca</h2>
-                <p>A Açaí Vida representa energia, bem-estar e vitalidade. Sua identidade busca unir elementos da cultura amazônica com uma linguagem contemporânea.</p>
+                <p>A Açaí Vida representa energia, bem-estar e vitalidade. Sua identidade busca unir elements da cultura amazônica com uma linguagem contemporânea.</p>
             </div>
         </section>
 
-        <section class="secao-wrapper">
+        <!-- SEÇÃO 03 -->
+        <section class="secao-wrapper pdf-section">
             <div class="fundo-interativo">
                 <h2>03 • Tipografia</h2>
                 <p>A seleção tipográfica busca equilibrar personalidade, modernidade e excelente legibilidade em ambientes digitais e impressos.</p>
@@ -431,7 +81,8 @@
             </div>
         </section>
 
-        <section class="secao-wrapper">
+        <!-- SEÇÃO 04 -->
+        <section class="secao-wrapper pdf-section">
             <div class="fundo-interativo">
                 <h2>04 • Paleta de Cores & Psicologia Cromática</h2>
                 <p>A paleta cromática da Açaí Vida foi construída para transmitir energia, vitalidade, natureza e conexão profunda com a essência da Amazônia.</p>
@@ -439,7 +90,7 @@
                 <div style="margin-top: 25px; font-size: 15px; line-height: 1.6; color: #555555;">
                     <p style="margin-bottom: 12px; font-weight: bold; color: #5B2A8C;">Psicologia das Cores Aplicada:</p>
                     <p>• <strong>Roxo (Açaí & Profundo):</strong> Associado à exclusividade e ao valor premium. Evoca a cor madura do fruto do açaí puro, gerando desejo imediato e sensação de autenticidade nutritiva.</p>
-                    <p>• <strong>Verde Energia:</strong> Representa saúde, frescor e a força da floresta amazônica. Equilibra o projeto lembrando o aspect natural e o bem-estar.</p>
+                    <p>• <strong>Verde Energia:</strong> Representa saúde, frescor e a força da floresta amazônica. Equilibra o projeto lembrando o aspecto natural e o bem-estar.</p>
                     <p>• <strong>Amarelo Tropical:</strong> Estimula o otimismo, a alegria e o apetite, injetando calor humano e vibração jovem.</p>
                 </div>
             </div>
@@ -480,27 +131,29 @@
             </div>
         </section>
 
-        <section class="secao-wrapper">
+        <!-- SEÇÃO 05 -->
+        <section class="secao-wrapper pdf-section">
             <div class="fundo-interativo">
                 <h2>05 • Aplicação da Marca</h2>
                 <p>Exemplos de aplicação da identidade visual em embalagens, copos e composições conceituais em duas colunas amplas e sem cortes.</p>
             </div>
             
             <div class="grid-duas-colunas">
-                <div class="card-midia"><img src="assets/imagens/aca_01.jpeg" alt="Açaí 1"><span class="legenda-midia">Fotografia Conceitual 1</span></div>
-                <div class="card-midia"><img src="assets/imagens/aca_02.jpeg" alt="Açaí 2"><span class="legenda-midia">Fotografia Conceitual 2</span></div>
-                <div class="card-midia"><img src="assets/imagens/aca_03.jpeg" alt="Açaí 3"><span class="legenda-midia">Fotografia Conceitual 3</span></div>
-                <div class="card-midia"><img src="assets/imagens/aca_04.jpeg" alt="Açaí 4"><span class="legenda-midia">Fotografia Conceitual 4</span></div>
-                <div class="card-midia"><img src="assets/imagens/aca_05.jpeg" alt="Açaí 5"><span class="legenda-midia">Fotografia Conceitual 5</span></div>
-                <div class="card-midia"><img src="assets/imagens/aca_01.jpeg" alt="Açaí 6"><span class="legenda-midia">Fotografia Conceitual 6</span></div>
-                <div class="card-midia"><img src="assets/imagens/sor_01.jpeg" alt="Sorvete 1"><span class="legenda-midia">Fotografia Conceitual 7</span></div>
-                <div class="card-midia"><img src="assets/imagens/sor_02.jpeg" alt="Sorvete 2"><span class="legenda-midia">Fotografia Conceitual 8</span></div>
-                <div class="card-midia"><img src="assets/imagens/sor_03.jpeg" alt="Sorvete 3"><span class="legenda-midia">Fotografia Conceitual 9</span></div>
-                <div class="card-midia"><img src="assets/imagens/sor_04.jpeg" alt="Sorvete 4"><span class="legenda-midia">Fotografia Conceitual 10</span></div>
+                <div class="card-midia"><img src="assets/imagens/aca_01.jpeg" alt="Copo de açaí, referente à copa de 2026 Brasil VS. Escócia"><span class="legenda-midia">Fotografia Conceitual 1</span></div>
+                <div class="card-midia"><img src="assets/imagens/aca_02.jpeg" alt="Copo de açaí, referente à copa de 2026 Brasil VS. Marrocos"><span class="legenda-midia">Fotografia Conceitual 2</span></div>
+                <div class="card-midia"><img src="assets/imagens/aca_03.jpeg" alt="Copo de açaí, referente à copa de 2026 Brasil VS. Haiti"><span class="legenda-midia">Fotografia Conceitual 3</span></div>
+                <div class="card-midia"><img src="assets/imagens/aca_04.jpeg" alt="Copo de açaí, 250ml, com morango e manga"><span class="legenda-midia">Fotografia Conceitual 4</span></div>
+                <div class="card-midia"><img src="assets/imagens/aca_05.jpeg" alt="Copo de açaí, na plataforma, com frutas, morango, uva e kiwi"><span class="legenda-midia">Fotografia Conceitual 5</span></div>
+                <div class="card-midia"><img src="assets/imagens/aca_01.jpeg" alt="Copo de açaí e sorvete, composição dupla"><span class="legenda-midia">Fotografia Conceitual 6</span></div>
+                <div class="card-midia"><img src="assets/imagens/sor_01.jpeg" alt="Copo de sorvete 01, hoje é dia de sorvete"><span class="legenda-midia">Fotografia Conceitual 7</span></div>
+                <div class="card-midia"><img src="assets/imagens/sor_02.jpeg" alt="Copo de sorvete 02, hoje é dia de sorvete"><span class="legenda-midia">Fotografia Conceitual 8</span></div>
+                <div class="card-midia"><img src="assets/imagens/sor_03.jpeg" alt="Copo de sorvete 03, hoje é dia de sorvete"><span class="legenda-midia">Fotografia Conceitual 9</span></div>
+                <div class="card-midia"><img src="assets/imagens/sor_04.jpeg" alt="Copo de sorvete 04, hoje é dia de sorvete"><span class="legenda-midia">Fotografia Conceitual 10</span></div>
             </div>
         </section>
 
-        <section class="secao-wrapper">
+        <!-- SEÇÃO 06 -->
+        <section class="secao-wrapper pdf-section">
             <div class="fundo-interativo">
                 <h2>06 • Materiais Promocionais</h2>
                 <p>Simulação física do cardápio institucional desenvolvido para os clientes da loja.</p>
@@ -509,42 +162,169 @@
             <div class="grid-duas-colunas">
                 <div class="card-midia">
                     <h3 class="subtitulo-imagem">Cardápio Oficial - Visualização</h3>
-                    <img src="assets/mockups/insta_01.png" alt="Mockup do Instagram">
+                    <img src="assets/mockups/insta_01.png" alt="Mockup de post no Instagram com a identidade visual Açaí Vida">
                 </div>
                 <div class="card-midia">
-                    <h3 class="subtitulo-imagem">Mockup 2</h3>
-                    <img src="assets/mockups/uniforme_01.png" alt="Mockup do Uniforme">
+                    <h3 class="subtitulo-imagem">Mockup de uniforme com logo Açaí Vida bordado</h3>
+                    <img src="assets/mockups/uniforme_01.png" alt="Mockup de uniforme com logo Açaí Vida bordado">
                 </div>
                 <div class="card-midia">
-                    <h3 class="subtitulo-imagem">Mockup 3</h3>
-                    <img src="assets/mockups/banner_02.png" alt="Mockup do Frontlight">
+                    <h3 class="subtitulo-imagem">Mockup de banner promocional Açaí Vida</h3>
+                    <img src="assets/mockups/banner_02.png" alt="Mockup de banner promocional Açaí Vida">
                 </div>
                 <div class="card-midia">
-                    <h3 class="subtitulo-imagem">Mockup 4</h3>
-                    <img src="assets/mockups/out_01.png" alt="Mockup do Frontlight">
+                    <h3 class="subtitulo-imagem">Mockup de material externo com aplicação da marca Açaí Vida</h3>
+                    <img src="assets/mockups/out_01.png" alt="Mockup de material externo com aplicação da marca Açaí Vida">
                 </div>
             </div>
         </section>
 
-        <section class="secao-wrapper fundo-rodape-roxo">
-            <h2>07 • Feedback & Comentários</h2>
-            <p>Deixe suas observações sobre a consistência e evolução da marca.</p>
-            
-            <div class="formulario-feedback">
-                <div class="grupo-input">
-                    <textarea id="texto-comentario" placeholder="Digite observações, sugestões ou avaliações do projeto..." rows="4"></textarea>
-                    <button id="btn-enviar">Enviar Comentário</button>
-                </div>
-                <div class="grupo-nota">
-                    <label for="slider-nota">Avaliação Geral:</label>
-                    <input type="range" id="slider-nota" min="1" max="10" value="10">
-                    <div class="display-nota">Nota: <span id="valor-nota">10</span>/10</div>
-                </div>
+        <!-- SEÇÃO 07 -->
+        <section class="secao-wrapper pdf-section">
+            <div class="fundo-interativo">
+                <h2>07 • Etapas do Projeto</h2>
+                <p>
+                    Registro visual das principais etapas realizadas durante o desenvolvimento
+                    do projeto de extensão, desde o planejamento inicial até a entrega final
+                    da identidade visual e plataforma digital.
+                </p>
             </div>
 
-            <div class="comentarios-renderizados">
-                <h3>Comentários Recentes:</h3>
-                <div id="container-comentarios"></div>
+            <div class="grid-duas-colunas">
+                <div class="card-midia">
+                    <img src="assets/etapas/equipe_01.jpeg" alt="Planejamento Inicial">
+                    <span class="legenda-midia">
+                        Foto do grupo junto à representante da empresa parceira, entrega dos itens conforme o cronograma, planejamento e organização das etapas do projeto.
+                    </span>
+                </div>
+
+                <div class="card-midia">
+                    <img src="assets/etapas/equipe_02.jpeg" alt="Levantamento de Requisitos">
+                    <span class="legenda-midia">
+                        Explicação do funcionamento do cardápio digital, linktree e brandbook no formato mobile.
+                    </span>
+                </div>
+
+                <div class="card-midia">
+                    <img src="assets/etapas/equipe_03.jpeg" alt="Pesquisa e Referências">
+                    <span class="legenda-midia">
+                        Explicação do funcionamento do Linktree, Brandbook e Cardápio Digital, em formato Desktop.
+                    </span>
+                </div>
+
+                <div class="card-midia">
+                    <img src="assets/etapas/equipe_04.jpeg" alt="Identidade Visual">
+                    <span class="legenda-midia">
+                        Foto do ambiente local. Planejamento e organização dos cenários para a produção fotográfica, composição visual e edição das imagens utilizadas na identidade visual do projeto.
+                    </span>
+                </div>
+
+                <div class="card-midia">
+                    <img src="assets/etapas/equipe_05.jpeg" alt="Produção Fotográfica">
+                    <span class="legenda-midia">
+                        Explicação do conceito do novo cardápio impresso, desenvolvimento das cores, tipografia utilizada com base no logo da empresa.
+                    </span>
+                </div>
+
+                <div class="card-midia">
+                    <img src="assets/etapas/equipe_06.jpeg" alt="Edição das Imagens">
+                    <span class="legenda-midia">
+                        Foto da fachada da empresa parceira.
+                    </span>
+                </div>
+
+                <div class="card-midia">
+                    <img src="assets/etapas/equipe_07.jpeg" alt="Desenvolvimento do Website">
+                    <span class="legenda-midia">
+                        Revisão e preenchimento da documentação acadêmica do projeto, organização dos arquivos e preparação para a entrega final.
+                    </span>
+                </div>
+
+                <div class="card-midia">
+                    <img src="assets/etapas/equipe_08.jpeg" alt="Finalização do Projeto">
+                    <span class="legenda-midia">
+                        Foto Final, entrega do projeto, reunião de feedback e avaliação final do projeto de extensão.
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 08 (Sua equipe - onde as imagens cortavam na imagem_92dac4.jpg!) -->
+        <section class="secao-wrapper pdf-section">
+            <div class="fundo-interativo">
+                <h2>08 • Equipe do Projeto</h2>
+                <p>Equipe responsável pelo desenvolvimento do projeto acadêmico, identidade visual, website, cardápio digital e documentação institucional.</p>
+            </div>
+
+            <div class="grid-tres-blocos">
+                <div class="card-midia">
+                    <img src="assets/membros/Bruno Freitas.jpg" alt="Membro da equipe 01">
+                    <span class="legenda-midia">Bruno Freitas | Responsável pelo desenvolvimento completo do website institucional, estruturação do Brandbook digital, captura e edição das fotografias utilizadas no projeto, além da organização visual e implementação técnica da plataforma.</span>
+                </div>
+
+                <div class="card-midia">
+                    <img src="assets/membros/Caio Rodrigues.jpeg" alt="Membro da equipe 02">
+                    <span class="legenda-midia">Caio Rodrigues | Atuou na edição das fotografias, elaboração da documentação acadêmica do projeto e criação dos cenários utilizados para a produção das imagens institucionais.</span>
+                </div>
+
+                <div class="card-midia">
+                    <img src="assets/membros/Flavia R Lima.jpeg" alt="Membro da equipe 03">
+                    <span class="legenda-midia">Flavia R. Lima | Responsável pela prospecção da empresa parceira, apoio na documentação acadêmica do projeto e colaboração na edição das fotografias institucionais.</span>
+                </div>
+
+                <div class="card-midia">
+                    <img src="assets/membros/Antonio Sergio.jpg" alt="Membro da equipe 04">
+                    <span class="legenda-midia">Antônio Sergio | Atuou na criação dos cenários fotográficos, composição visual dos ambientes e edição das imagens utilizadas na apresentação da marca.</span>
+                </div>
+
+                <div class="card-midia">
+                    <img src="assets/membros/Gabriela Maria.jpg" alt="Membro da equipe 05">
+                    <span class="legenda-midia">Gabriela Maria | Contribuiu na criação dos cenários fotográficos, apoio à produção visual e edição das fotografias utilizadas na identidade visual do projeto.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 09 (Feedback - Adicionado 'no-pdf' para omitir esta seção do PDF) -->
+        <section class="secao-wrapper fundo-rodape-roxo no-pdf">
+            <h2>09 • Feedback & Comentários</h2>
+            <p>Deixe suas observações sobre a consistência e evolução da marca.</p>
+    
+        <div class="formulario-feedback">
+        <div class="grupo-input">
+            <input type="text" id="nome-comentario" placeholder="Seu nome (opcional)">
+            <input type="text" id="cargo-comentario" placeholder="Instituição, cargo ou função (opcional)">
+            <textarea id="texto-comentario" placeholder="Digite observações, sugestões ou avaliações do projeto..." rows="4"></textarea>
+            <button id="btn-enviar">Enviar Comentário</button>
+        </div>
+
+        <div class="grupo-nota">
+            <label for="slider-nota">Avaliação Geral:</label>
+            <input type="range" id="slider-nota" min="1" max="10" value="10">
+            <div class="display-nota">Nota: <span id="valor-nota">10</span>/10</div>
+        </div>
+        </div>
+
+        <div class="comentarios-renderizados">
+        <h3>Comentários Recentes:</h3>
+        <div id="container-comentarios"></div>
+        </div>
+        </section>
+
+        <!-- SEÇÃO 10 (Botões de Exportação - Adicionado 'no-pdf' para omitir do PDF) -->
+        <section class="secao-wrapper fundo-rodape-roxo no-pdf">
+            <h2>10 • Exportação .ZIP e .PDF</h2>
+            <p>
+                Faça o download de todas as imagens utilizadas no Brandbook ou exporte
+                este documento completo em PDF.
+            </p>
+
+            <div class="acoes-exportacao">
+                <button id="btn-download-zip">
+                    📦 Baixar Imagens (.ZIP)
+                </button>
+                <button id="btn-download-pdf">
+                    📄 Exportar Brandbook (.PDF)
+                </button>
             </div>
         </section>
 
@@ -554,6 +334,14 @@
         Açaí Vida • Brandbook Acadêmico • 2026
     </footer>
 
+    <!-- BIBLIOTECAS EXTERNAS (Carregadas primeiro) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- SEU SCRIPT DE CONTROLE (Carregado por último, garantindo que as libs já estejam prontas) -->
     <script src="js/brandbook.js"></script>
+
 </body>
 </html>

@@ -35,8 +35,9 @@ body.linktree {
 .logo {
     width: 450px; /* Reduzido levemente para melhor proporção */
     height: auto;
-    margin-bottom: 20px;
-    border-radius: 50%; /* Caso sua logo seja redonda, ajuda a encaixar */
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
     animation: flutuar 4s infinite ease-in-out;
 }
 
