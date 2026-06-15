@@ -6,7 +6,6 @@
 
 /* --------------------------------------------------
    1. VARIÁVEIS DA MARCA (Design Tokens)
-   Altere aqui para refletir em todo o projeto.
    -------------------------------------------------- */
 :root {
     --cor-roxo-acai:      #5B2A8C;
@@ -36,8 +35,6 @@
 
 /* --------------------------------------------------
    3. BASE
-   Fonte carregada via <link> no HTML (mais rápido).
-   Remova o @import se existir no topo do arquivo.
    -------------------------------------------------- */
 body {
     background-color: var(--cor-roxo-profundo);
@@ -55,6 +52,11 @@ h1, h2, h3 {
     margin-top: 0;
 }
 
+/* Classes utilitárias para as fontes do projeto */
+.font-gelato { font-family: 'Gelato Luxe', cursive, sans-serif; }
+.font-poppins { font-family: 'Poppins', sans-serif; }
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+
 /* --------------------------------------------------
    4. CABEÇALHO E NAVEGAÇÃO
    -------------------------------------------------- */
@@ -67,7 +69,6 @@ h1, h2, h3 {
     background-color: var(--cor-branco-neve);
     border-bottom: 4px solid var(--cor-roxo-acai);
     line-height: 1.4;
-    font-family: 'Montserrat', sans-serif;
     letter-spacing: 0.5px;
 }
 
@@ -87,12 +88,7 @@ h1, h2, h3 {
     border-radius: var(--raio-botao);
     font-weight: 700;
     font-size: 14px;
-    /* Transição específica: mais eficiente que "all" */
-    transition:
-        background-color var(--transicao),
-        color var(--transicao),
-        transform var(--transicao),
-        box-shadow var(--transicao);
+    transition: background-color var(--transicao), color var(--transicao), transform var(--transicao), box-shadow var(--transicao);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -103,7 +99,6 @@ h1, h2, h3 {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Acessibilidade: foco visível para navegação via teclado */
 .btn-navegar:focus-visible {
     outline: 3px solid var(--cor-amarelo-tropic);
     outline-offset: 3px;
@@ -191,7 +186,6 @@ h1, h2, h3 {
     margin-top: 25px;
 }
 
-/* Grid fixo de 2 colunas — colapsa para 1 no mobile */
 .grid-duas-colunas {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -209,7 +203,7 @@ h1, h2, h3 {
     border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
     position: relative;
-    /* Overflow hidden: evita que o hover vaze do card pai acidentalmente */
+    overflow: hidden; /* Evita vazamentos */
 }
 
 .card-midia img {
@@ -223,26 +217,18 @@ h1, h2, h3 {
     margin: 0 auto;
     position: relative;
     z-index: 1;
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Zoom ao passar o mouse — imagem sobrepõe o layout */
+/* Zoom suave e controlado */
 .card-midia img:hover {
-    transform: scale(1.3);
-    z-index: 10;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
 }
 
-/* Respeita preferência de movimento reduzido (acessibilidade) */
 @media (prefers-reduced-motion: reduce) {
-    .card-midia img {
-        transition: none;
-    }
-    .card-midia img:hover {
-        transform: none;
-    }
+    .card-midia img { transition: none; }
+    .card-midia img:hover { transform: none; }
 }
 
 .subtitulo-imagem {
@@ -280,7 +266,6 @@ h1, h2, h3 {
     border-spacing: 12px 0;
 }
 
-/* Padding em vez de height fixa: cresce com o conteúdo */
 .tabela-cores td {
     padding: 30px 15px;
     border-radius: 12px;
@@ -323,6 +308,14 @@ h1, h2, h3 {
     gap: 12px;
 }
 
+.grupo-input input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #DDDDDD;
+    font-family: inherit;
+}
+
 #texto-comentario {
     width: 100%;
     padding: 14px;
@@ -334,7 +327,7 @@ h1, h2, h3 {
     transition: border-color var(--transicao);
 }
 
-#texto-comentario:focus {
+#texto-comentario:focus, .grupo-input input:focus {
     outline: none;
     border-color: var(--cor-roxo-acai);
     box-shadow: 0 0 0 3px rgba(91, 42, 140, 0.15);
@@ -406,6 +399,29 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
+.acoes-exportacao {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.acoes-exportacao button {
+    background: #5B2A8C;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: var(--transicao);
+}
+
+.acoes-exportacao button:hover {
+    background: #2D0B48;
+    transform: translateY(-2px);
+}
+
 /* --------------------------------------------------
    11. RODAPÉ
    -------------------------------------------------- */
@@ -438,32 +454,8 @@ h1, h2, h3 {
         padding: 25px 20px;
     }
 
-    /* No mobile o zoom de hover não faz sentido (touch) */
     .card-midia img:hover {
         transform: none;
         box-shadow: var(--sombra-img);
     }
-
-    .acoes-exportacao {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 25px;
-}
-
-    .acoes-exportacao button {
-    background: #5B2A8C;
-    color: white;
-    border: none;
-    padding: 15px 25px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 700;
-    transition: 0.3s;
-}
-
-    .acoes-exportacao button:hover {
-    background: #2D0B48;
-    transform: translateY(-2px);
-}
 }
