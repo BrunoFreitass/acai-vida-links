@@ -97,45 +97,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
             div.innerHTML = `
                 <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
-
                     <div>
-                    <strong style="
-                        color:#2D0B48;
-                        font-size:16px;
-                        display:block;
-                            ">
-                         ${comentario.nome || "Visitante"}
-                        </strong>
-
-            <span style="
-                        color:#777;
-                        font-size:13px;
-                        ">
-                ${comentario.cargo || "Não informado"}
-            </span>
-        </div>
-
-        <div style="
-            text-align:right;
-            font-size:13px;
-            color:#666;
-        ">
-            ⭐ ${comentario.nota}/10
-            <br>
-            ${comentario.data || ""}
-        </div>
-
-    </div>
-
-    <p style="
-        margin:0;
-        color:#444;
-        font-size:14px;
-        line-height:1.6;
-    ">
-        ${comentario.texto}
-    </p>
-`;
+                        <strong style="color:#2D0B48; font-size:16px; display:block;">
+                            ${comentario.nome || "Visitante"}
+                        </strong> 
+                        <span style="color:#777; font-size:13px;">
+                            ${comentario.cargo || "Não informado"}
+                        </span>
+                    </div>
+                    <div style="text-align:right; font-size:13px; color:#666;">
+                        ⭐ ${comentario.nota}/10
+                        <br>
+                        ${comentario.data || ""}
+                    </div>
+                </div>
+                <p style="margin:0; color:#444; font-size:14px; line-height:1.6;">
+                    ${comentario.texto}
+                </p>
+            `;
             containerComentarios.appendChild(div);
         });
     }
@@ -151,22 +130,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             listaComentarios.push({
-                nome:
-                    nomeComentario?.value.trim() ||
-                    "Visitante",
-
-                cargo:
-                    cargoComentario?.value.trim() ||
-                    "Não informado",
-
-            texto: texto,
-
-            nota: nota,
-
-            data:
-                    new Date().toLocaleDateString("pt-BR")
-
-});
+                nome: nomeComentario?.value.trim() || "Visitante",
+                cargo: cargoComentario?.value.trim() || "Não informado",
+                texto: texto,
+                nota: nota,
+                data: new Date().toLocaleDateString("pt-BR")
+            });
 
             localStorage.setItem("brandbook_feedbacks", JSON.stringify(listaComentarios));
 
@@ -207,20 +176,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-                // Remove temporariamente classes indesejadas do PDF
                 const elementosOcultar = elemento.querySelectorAll(".no-pdf");
                 elementosOcultar.forEach(el => el.style.display = "none");
 
-                // Renderiza o documento completo em um canvas de alta resolução
                 const canvas = await html2canvas(elemento, {
-                    scale: 2.0, // Alta resolução para fidelidade visual premium
+                    scale: 2.0,
                     useCORS: true,
                     allowTaint: true,
                     backgroundColor: "#ffffff",
                     logging: false
                 });
 
-                // Restaura a visualização dos elementos ocultos na tela
                 elementosOcultar.forEach(el => el.style.display = "");
 
                 const pdf = new jsPDF({
@@ -235,7 +201,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const larguraUtil = larguraPagina - (margem * 2);
                 const alturaUtilPagina = alturaPagina - (margem * 2);
 
-                // Converte a altura útil da página do PDF em pixels equivalentes ao Canvas
                 const proporcaoPixelMM = canvas.width / larguraUtil;
                 const alturaPaginaPx = alturaUtilPagina * proporcaoPixelMM;
 
@@ -248,21 +213,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 while (sliceStart < totalHeight) {
                     let sliceHeight = alturaPaginaPx;
 
-                    // Se não for a última página, analisa os pixels para achar a quebra de linha em branco perfeita
                     if (sliceStart + sliceHeight < totalHeight) {
-                        // Define uma zona de busca de quebra de página (últimos 25% da folha corrente)
                         const searchZoneStart = Math.floor(sliceStart + sliceHeight - (alturaPaginaPx * 0.25));
                         const searchZoneEnd = Math.floor(sliceStart + sliceHeight);
 
-                        // Captura os dados de cor desta região específica do canvas
                         const imgDataRegion = ctx.getImageData(0, searchZoneStart, canvas.width, searchZoneEnd - searchZoneStart);
                         const pixels = imgDataRegion.data;
 
                         let melhorLinhaDeCorte = searchZoneEnd - 1;
-                        let encontrouLinhaEmBranco = false;
                         let menorDensidadeDePixel = canvas.width;
 
-                        // Analisa a região de baixo para cima para maximizar o preenchimento da folha
                         for (let y = searchZoneEnd - 1; y >= searchZoneStart; y--) {
                             const offsetLinha = (y - searchZoneStart) * canvas.width * 4;
                             let pixelsColoridos = 0;
@@ -274,33 +234,27 @@ document.addEventListener("DOMContentLoaded", () => {
                                 const b = pixels[idx + 2];
                                 const a = pixels[idx + 3];
 
-                                // Considera pixels não brancos ou com opacidade ativa (textos, imagens, fundos coloridos)
                                 if (a > 10 && (r < 248 || g < 248 || b < 248)) {
                                     pixelsColoridos++;
                                 }
                             }
 
-                            // Linha perfeita encontrada (0% a 1.5% de ruído visual de renderização)
                             if (pixelsColoridos <= canvas.width * 0.015) {
                                 melhorLinhaDeCorte = y;
-                                encontrouLinhaEmBranco = true;
                                 break;
                             }
 
-                            // Caso não encontre uma linha 100% limpa, armazena a linha com menor poluição visual
                             if (pixelsColoridos < menorDensidadeDePixel) {
                                 menorDensidadeDePixel = pixelsColoridos;
-                                melhorLinhaDeCorte = y;
+                                mejorLinhaDeCorte = y;
                             }
                         }
 
                         sliceHeight = melhorLinhaDeCorte - sliceStart;
                     } else {
-                        // Última página pega o restante total
                         sliceHeight = totalHeight - sliceStart;
                     }
 
-                    // Cria um mini canvas temporário contendo apenas o fragmento sem cortes da página atual
                     const canvasSlice = document.createElement("canvas");
                     canvasSlice.width = canvas.width;
                     canvasSlice.height = sliceHeight;
@@ -308,8 +262,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     ctxSlice.drawImage(
                         canvas,
-                        0, sliceStart, canvas.width, sliceHeight, // Recorta do canvas original
-                        0, 0, canvas.width, sliceHeight          // Desenha no novo fragmento
+                        0, sliceStart, canvas.width, sliceHeight,
+                        0, 0, canvas.width, sliceHeight
                     );
 
                     const sliceImgData = canvasSlice.toDataURL("image/jpeg", 0.92);
@@ -320,7 +274,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         primeiraPagina = false;
                     }
 
-                    // Calcula a altura proporcional no PDF
                     const alturaProporcionalPDF = (sliceHeight * larguraUtil) / canvas.width;
 
                     pdf.addImage(
@@ -335,14 +288,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     sliceStart += sliceHeight;
                 }
 
-                // Adiciona o rodapé oficial e numeração de página centralizada
                 const totalPaginas = pdf.internal.getNumberOfPages();
                 for (let i = 1; i <= totalPaginas; i++) {
                     pdf.setPage(i);
                     pdf.setFontSize(8);
                     pdf.setTextColor("#999999");
                     
-                    // Desenha uma linha fina separadora no rodapé
                     pdf.setDrawColor("#E2E8F0");
                     pdf.setLineWidth(0.2);
                     pdf.line(margem, 285, larguraPagina - margem, 285);
@@ -430,46 +381,44 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
     // =====================================================
     // LIGHTBOX DAS IMAGENS (CORRIGIDO COM FADE-IN/OUT)
     // =====================================================
-        const modal = document.getElementById("modal-imagem");
-        const imagemAmpliada = document.getElementById("imagem-ampliada");
-        const fecharModal = document.getElementById("fechar-modal");
+    const modal = document.getElementById("modal-imagem");
+    const imagemAmpliada = document.getElementById("imagem-ampliada");
+    const fecharModal = document.getElementById("fechar-modal");
 
-        if (modal && imagemAmpliada && fecharModal) {
-         document.querySelectorAll(".card-midia img").forEach(img => {
-            img.style.cursor = "pointer"; // Indica visualmente que a imagem é clicável
+    if (modal && imagemAmpliada && fecharModal) {
+        document.querySelectorAll(".card-midia img").forEach(img => {
+            img.style.cursor = "pointer";
 
             img.addEventListener("click", () => {
                 imagemAmpliada.src = img.src;
                 imagemAmpliada.alt = img.alt;
 
                 modal.style.display = "flex";
-                // Pequeno atraso milimétrico para permitir que o navegador renderize o display antes da animação
                 setTimeout(() => {
                     modal.style.opacity = "1";
                 }, 10);
             });
         });
 
-        // Função isolada para fechar o modal com transição suave
         const fecharOModal = () => {
             modal.style.opacity = "0";
-            // Aguarda o término da transição do CSS (0.25s) para esconder o elemento
             setTimeout(() => {
                 modal.style.display = "none";
-                imagemAmpliada.src = ""; // Limpa o cache da imagem
+                imagemAmpliada.src = "";
             }, 250);
         };
 
         fecharModal.addEventListener("click", fecharOModal);
 
         modal.addEventListener("click", (e) => {
-            // Se clicar na área escura (fora do slide de conteúdo), fecha o modal
             if (e.target === modal) {
                 fecharOModal();
             }
         });
     }
-    });
+
+}); 
