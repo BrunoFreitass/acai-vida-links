@@ -430,4 +430,46 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-});
+    // =====================================================
+    // LIGHTBOX DAS IMAGENS (CORRIGIDO COM FADE-IN/OUT)
+    // =====================================================
+        const modal = document.getElementById("modal-imagem");
+        const imagemAmpliada = document.getElementById("imagem-ampliada");
+        const fecharModal = document.getElementById("fechar-modal");
+
+        if (modal && imagemAmpliada && fecharModal) {
+         document.querySelectorAll(".card-midia img").forEach(img => {
+            img.style.cursor = "pointer"; // Indica visualmente que a imagem é clicável
+
+            img.addEventListener("click", () => {
+                imagemAmpliada.src = img.src;
+                imagemAmpliada.alt = img.alt;
+
+                modal.style.display = "flex";
+                // Pequeno atraso milimétrico para permitir que o navegador renderize o display antes da animação
+                setTimeout(() => {
+                    modal.style.opacity = "1";
+                }, 10);
+            });
+        });
+
+        // Função isolada para fechar o modal com transição suave
+        const fecharOModal = () => {
+            modal.style.opacity = "0";
+            // Aguarda o término da transição do CSS (0.25s) para esconder o elemento
+            setTimeout(() => {
+                modal.style.display = "none";
+                imagemAmpliada.src = ""; // Limpa o cache da imagem
+            }, 250);
+        };
+
+        fecharModal.addEventListener("click", fecharOModal);
+
+        modal.addEventListener("click", (e) => {
+            // Se clicar na área escura (fora do slide de conteúdo), fecha o modal
+            if (e.target === modal) {
+                fecharOModal();
+            }
+        });
+    }
+    });
